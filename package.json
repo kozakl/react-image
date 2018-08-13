@@ -11,7 +11,7 @@
     "url": "https://github.com/kozakl/react-responsive-image"
   },
   "scripts": {
-    "start": "webpack-dev-server --config webpack.config.js",
+    "start": "webpack-dev-server --config webpack.config.test.js",
     "build": "rm -rf ./dist && rsync -r --include='*.pcss' --exclude='*' ./src/ ./dist",
     "publish-dist": "yarn build && cp package.json ./dist && npm publish ./dist --access=public",
     "deploy": "babel-node ./tasks/deploy.js",
