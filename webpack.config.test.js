@@ -1,9 +1,8 @@
 const path = require('path'),
-      BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin,
       DefinePlugin = require('webpack').DefinePlugin;
 
 module.exports = {
-    entry: './src/Main.tsx',
+    entry: './test/Main.tsx',
     resolve: {
         extensions: ['.ts', '.tsx', '.js'],
         alias: {
@@ -13,9 +12,9 @@ module.exports = {
     output: {
         path: path.join(__dirname, 'public'),
         filename: 'bundle.js',
-        chunkFilename: '[chunkhash].js'
+        chunkFilename: '[name].js'
     },
-    mode: 'production',
+    mode: 'development',
     module: {
         rules: [
             {
@@ -51,18 +50,22 @@ module.exports = {
                 test: /\.(png|jpg|gif)$/,
                 loader: 'file-loader',
                 options: {
-                    name: 'assets/[hash:10].[ext]'
+                    name: '[path][name].[ext]'
                 }
             }
         ]
+    },
+    devtool: 'source-map',
+    devServer: {
+        contentBase: 'public/',
+        historyApiFallback: true,
+        open: 'google-chrome-beta'
     },
     plugins: [
         new DefinePlugin({
             'process.env': {
                 'API_URL': JSON.stringify('')
             }
-        }),
-        process.argv.includes('--analyzer') &&
-            new BundleAnalyzerPlugin()
+        })
     ]
 };

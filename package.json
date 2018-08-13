@@ -1,6 +1,6 @@
 {
   "name": "@kozakl/react-responsive-image",
-  "version": "0.0.1-alpha.1",
+  "version": "1.0.0",
   "author": {
     "name": "Luke Kozak",
     "email": "kozakluke@gmail.com",
@@ -11,11 +11,12 @@
     "url": "https://github.com/kozakl/react-responsive-image"
   },
   "scripts": {
-    "start": "webpack-dev-server --config webpack.config.js",
-    "build": "rm -rf ./dist && rsync -r --include='*.pcss' --exclude='*' ./src/ ./dist/ && tsc",
+    "start": "webpack-dev-server --config webpack.config.test.js",
+    "build": "rm -rf ./dist && rsync -r --include='*.pcss' --exclude='*' ./src/ ./dist",
     "publish-dist": "yarn build && cp package.json ./dist && npm publish ./dist --access=public",
     "deploy": "babel-node ./tasks/deploy.js",
-    "clean-cache": "babel-node ./tasks/clean-cache.js",
+    "make-images": "babel-node ./tasks/make-images.js 'assets/images.json'",
+    "clean-npm": "babel-node ./tasks/clean-npm.js",
     "clean-public": "babel-node ./tasks/clean-public.js",
     "test": "jest --coverage",
     "test:watch": "yarn test -- --watchAll"
@@ -44,11 +45,13 @@
     "@kozakl/webpack-dev-server": "^3.1.6",
     "@types/jest": "^23.3.0",
     "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
     "css-loader": "^1.0.0",
     "file-loader": "^1.1.11",
     "fs-extra": "^7.0.0",
+    "gm": "^1.23.1",
     "jest": "^23.4.1",
     "postcss-cssnext": "^3.1.0",
     "postcss-each": "^0.10.0",
