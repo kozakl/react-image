@@ -37,7 +37,6 @@
     "@kozakl/utils": "^2.1.1",
     "@types/react": "^16.4.6",
     "@types/react-dom": "^16.0.6",
-    "babel-preset-react": "^6.24.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
   },
