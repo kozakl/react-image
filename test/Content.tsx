@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as style from './Content.pcss';
-import ResponsiveImage from '../../../src';
+import ResponsiveImage from '../src/index';
 import {PureComponent} from 'react';
-import {Images} from '../../types';
+import {Images} from './types';
 /**
  * @author kozakluke@gmail.com
  */

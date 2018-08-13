@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Content from './components/content';
+import Content from './Content';
 import './Main.pcss';
 /**
  * @author kozakluke@gmail.com
