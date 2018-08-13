@@ -7,7 +7,6 @@
     "strict": true,
     "strictNullChecks": false,
     "declaration": true,
-    "rootDir": "./src",
     "outDir": "./dist",
     "lib": [
       "dom",
