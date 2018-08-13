@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.js",
-    "build": "rm -rf ./dist && rsync -r --include='*.pcss' --exclude='*' ./src/ ./dist/ && tsc",
+    "build": "rm -rf ./dist && rsync -r --include='*.pcss' --exclude='*' ./src ./dist && tsc",
     "publish-dist": "yarn build && cp package.json ./dist && npm publish ./dist --access=public",
     "deploy": "babel-node ./tasks/deploy.js",
     "clean-cache": "babel-node ./tasks/clean-cache.js",
