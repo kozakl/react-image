@@ -1,6 +1,6 @@
 {
   "name": "@kozakl/react-responsive-image",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "author": {
     "name": "Luke Kozak",
     "email": "kozakluke@gmail.com",
@@ -14,8 +14,6 @@
     "start": "webpack-dev-server --config webpack.config.test.js",
     "build": "rm -rf ./dist && rsync -r --include='*.pcss' --exclude='*' ./src/ ./dist && tsc",
     "publish-dist": "yarn build && cp package.json ./dist && npm publish ./dist --access=public",
-    "deploy": "babel-node ./tasks/deploy.js",
-    "make-images": "babel-node ./tasks/make-images.js 'assets/images.json'",
     "clean-npm": "babel-node ./tasks/clean-npm.js",
     "clean-public": "babel-node ./tasks/clean-public.js",
     "test": "jest --coverage",

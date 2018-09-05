@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as style from './ResponsiveImage.pcss';
-import classNames from '@kozakl/utils/classNames';
 import {PureComponent} from 'react';
 /**
  * @author kozakluke@gmail.com
@@ -17,7 +16,11 @@ export default class ResponsiveImage extends PureComponent<Props, State>
         };
     }
     
-    onLoadThumb = ()=> {
+    onLoadThumb = ()=>
+    {
+        if (this.props.onLoadThumb)
+            this.props.onLoadThumb();
+        
         this.setState({loadedThumb: true});
     };
     
@@ -33,13 +36,10 @@ export default class ResponsiveImage extends PureComponent<Props, State>
     
     render()
     {
-        const responsiveImageClass = classNames(
-            style.responsiveImage,
-            this.props.className
-        );
         return (
-            <div className={responsiveImageClass}>
-                <div style={{'paddingTop': `${this.props.ratio * 100}%`}}>
+            <div className={this.props.className}>
+                <div className={style.wrapper}
+                     style={{'paddingTop': `${this.props.ratio * 100}%`}}>
                     <img
                         className={style.image}
                         src={this.state.thumb}
@@ -63,6 +63,7 @@ interface Props {
     srcSet:string;
     sizes?:string;
     src?:string;
+    onLoadThumb?:()=> void;
 }
 
 interface State {
