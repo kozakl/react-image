@@ -1,5 +1,5 @@
 /**
  * @author kozakluke@gmail.com
  */
-export const responsiveImage:string;
+export const wrapper:string;
 export const image:string;
