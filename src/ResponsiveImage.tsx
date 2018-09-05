@@ -16,7 +16,11 @@ export default class ResponsiveImage extends PureComponent<Props, State>
         };
     }
     
-    onLoadThumb = ()=> {
+    onLoadThumb = ()=>
+    {
+        if (this.props.onLoadThumb)
+            this.props.onLoadThumb();
+        
         this.setState({loadedThumb: true});
     };
     
@@ -59,6 +63,7 @@ interface Props {
     srcSet:string;
     sizes?:string;
     src?:string;
+    onLoadThumb?:()=> void;
 }
 
 interface State {
